@@ -1,0 +1,6 @@
+{
+    "name": "okawa/image-to-xlsx",
+    "require": {
+    	"phpoffice/phpexcel": "1.8.1"
+    }
+}

@@ -1,0 +1,11 @@
+-main Main
+-js public/files/js/script.js
+-cp src/js/
+-cp /Applications/MAMP/htdocs/library/haxe/
+
+--next
+
+-main Main
+-php public/files/php/
+-cp src/php/
+-cp /Applications/MAMP/htdocs/library/haxe/jp/okawa/php/

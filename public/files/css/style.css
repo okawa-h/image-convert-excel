@@ -1,0 +1,150 @@
+@charset "utf-8";
+@import "common/base.css";
+
+/* -------------------------
+	Layout
+------------------------- */
+body {
+	-webkit-font-smoothing: antialiased;
+	background-color: #eee;
+}
+
+#all {
+	padding: 60px;
+}
+
+#main {
+	padding: 30px;
+	background-color: #fff;
+}
+
+.wrap {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+button {
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	outline: none;
+	appearance: none;
+	cursor: pointer;
+}
+
+/*-------------------------------------------------------------------------
+	Common
+/*-----------------------------------------------------------------------*/
+.button {
+	display: inline-block;
+	padding: .5em 1.5em;
+	border-radius: 3px;
+	background-color: #ccc;
+	font-size: 14px;
+}
+
+.button:hover {
+	opacity: .8;
+}
+
+h1 {
+	margin-bottom: 30px;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+/*-------------------------------------------------------------------------
+	Section
+/*-----------------------------------------------------------------------*/
+#read input {
+	display: none;
+	visibility: hidden;
+}
+
+#read .button {
+	display: inline-block;
+	margin-bottom: 20px;
+	padding: .8em 1.5em;
+	border-radius: 3px;
+	background-color: #ccc;
+	font-size: 14px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+#read .button:hover {
+	background-color: #ddd;
+}
+
+#read .button:active {
+	background-color: #eee;
+}
+
+#data {
+	position: relative;
+	height: 100%;
+	max-height: 600px;
+	margin: 0 20px;
+}
+
+#data [name="data"] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #ddd;
+}
+
+/*-------------------------------------------------------------------------
+	Loading
+/*-----------------------------------------------------------------------*/
+#loading {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.6);
+}
+
+#all.loading #loading {
+	display: block;
+}
+
+.loader,
+.loader:after {
+	visibility: visible;
+	width: 8em;
+	height: 8em;
+	border-radius: 50%;
+}
+
+.loader {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -4em;
+	margin-left: -4em;
+	border: .6em solid rgba(255, 255, 255, 0.2);
+	border-left: .6em solid #fff;
+	font-size: 10px;
+	transform: translateZ(0);
+	animation: loading .6s infinite linear;
+}
+
+@keyframes loading {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
