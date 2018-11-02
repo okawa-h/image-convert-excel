@@ -912,7 +912,6 @@ utils_Ajax.send = function(param) {
 	request.request(true);
 };
 utils_Ajax.onData = function(data) {
-	console.log(data);
 	Main.setBoard($("<p>OK</p>"));
 	utils_Ajax.download("files/output/image.xlsx");
 	Main.loading(false);
@@ -939,19 +938,13 @@ utils_ImageData.load = function(canvas,src) {
 		canvas.width = width;
 		canvas.height = height;
 		context.drawImage(image,0,0,width,height);
-		context.clearRect(0,0,width,height);
-		context.save();
-		context.translate(width / 2,height / 2);
-		context.rotate(-90 * Math.PI / 180);
-		context.drawImage(image,-width / 2,-width / 2);
-		context.restore();
 		var data = context.getImageData(0,0,width,height).data;
-		var hexList = utils_ImageData.uint8ToRGBAArray(data);
+		var hexList = utils_ImageData.uint8ToHexList(data);
 		Main.onData(hexList,width,height);
 	};
 	image.src = src;
 };
-utils_ImageData.uint8ToRGBAArray = function(data) {
+utils_ImageData.uint8ToHexList = function(data) {
 	var rgbaList = [];
 	var length = Math.floor(data.length / 4);
 	var _g1 = 0;

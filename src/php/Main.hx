@@ -37,25 +37,23 @@ class Main {
 	========================================================================== */
 	private static function create(excel:PHPExcel,data:Array<String>,width:Int,height:Int):Void {
 
-		var sheet     :Worksheet = excel.getActiveSheet();
-		var dataConter:Int = 0;
+		var sheet:Worksheet = excel.getActiveSheet();
 
-		for (x in 0 ... width) {
+		for (column in 0 ... width) {
 
-			sheet.getColumnDimensionByColumn(x).setWidth(.8);
+			sheet.getColumnDimensionByColumn(column).setWidth(.4);
 
-			for (y in 0 ... height) {
+			for (row in 0 ... height) {
 
-				var color:String = data[dataConter];
-				sheet.getRowDimension(y + 1).setRowHeight(6);
+				var index:Int    = column + (row * width);
+				var color:String = data[index];
+				sheet.getRowDimension(row + 1).setRowHeight(3);
 				sheet
-					.getStyleByColumnAndRow(x,y + 1)
+					.getStyleByColumnAndRow(column,row + 1)
 					.getFill()
 					.setFillType(Fill.FILL_SOLID)
 					.getStartColor()
 					.setRGB(color);
-
-				dataConter++;
 
 			}
 		}

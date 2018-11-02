@@ -28,15 +28,8 @@ class ImageData {
 				canvas.height  = height;
 				context.drawImage(image,0,0,width,height);
 
-				context.clearRect(0,0,width,height);
-				context.save();
-				context.translate(width/2,height/2);
-				context.rotate(-90 * Math.PI / 180);
-				context.drawImage(image,-width/2,-width/2);
-				context.restore();
-
 				var data   :Uint8ClampedArray = context.getImageData(0,0,width,height).data;
-				var hexList:Array<String>     = uint8ToRGBAArray(data);
+				var hexList:Array<String>     = uint8ToHexList(data);
 
 				Main.onData(hexList,width,height);
 
@@ -47,9 +40,9 @@ class ImageData {
 		}
 
 	/* =======================================================================
-		Uint8 To RGBA Array
+		Uint8 To Hex List
 	========================================================================== */
-	private static function uint8ToRGBAArray(data:Uint8ClampedArray):Array<String> {
+	private static function uint8ToHexList(data:Uint8ClampedArray):Array<String> {
 
 		var rgbaList:Array<String> = [];
 		var length   :Int = Math.floor(data.length/4);

@@ -31,8 +31,7 @@ class Ajax {
 		Download
 	========================================================================== */
 	private static function onData(data:Dynamic):Void {
-		
-		trace(data);
+
 		Main.setBoard(new JQuery('<p>OK</p>'));
 		download('files/output/image.xlsx');
 		Main.loading(false);
