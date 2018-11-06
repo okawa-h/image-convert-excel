@@ -31,9 +31,11 @@ class Main {
 					while($_g3 < $_g2) {
 						$_g3 = $_g3 + 1;
 						$row = $_g3 - 1;
+						if($column === 0) {
+							$sheet->getRowDimension($row + 1)->setRowHeight(3);
+						}
 						$index = $column + $row * $width;
 						$color = $data[$index];
-						$sheet->getRowDimension($row + 1)->setRowHeight(3);
 						$sheet->getStyleByColumnAndRow($column, $row + 1, null, null)->getFill()->setFillType("solid")->getStartColor()->setRGB($color);
 						unset($row,$index,$color);
 					}

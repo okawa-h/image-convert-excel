@@ -45,9 +45,10 @@ class Main {
 
 			for (row in 0 ... height) {
 
+				if (column == 0) sheet.getRowDimension(row + 1).setRowHeight(3);
+
 				var index:Int    = column + (row * width);
 				var color:String = data[index];
-				sheet.getRowDimension(row + 1).setRowHeight(3);
 				sheet
 					.getStyleByColumnAndRow(column,row + 1)
 					.getFill()
